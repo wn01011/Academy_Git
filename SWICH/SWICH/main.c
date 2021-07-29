@@ -50,11 +50,15 @@ int main()
 		printf("숫자를 입력하시오");
 		scanf(" %d", &input);
 
-		if (input >= 0)
+		/*if (input >= 0)
 			printf("입력한 숫자의 절댓값은 %d\n", input);
 		else
-			printf("입력한 숫자의 절댓값은 %d\n", -1 * input);
-		
+			printf("입력한 숫자의 절댓값은 %d\n", -1 * input);*/
+		if (input < 0)
+		{
+			input *= -1;
+		}
+		printf("입력한 숫자의 절댓값은 %d\n", input);
 	}
 		break;
 	//숫자를 2개 입력받아서 큰수에서 작은 수를 뺀 값을 출력하라
@@ -63,11 +67,18 @@ int main()
 		int input_1, input_2;
 		printf("숫자를 두개 입력하시오\n");
 		scanf(" %d %d", &input_1, &input_2);
-		if (input_1 >= input_2)
+		int min = input_1 - input_2;
+		/*if (input_1 >= input_2)
 		{
 			printf("%d - %d = %d\n", input_1, input_2, input_1 - input_2);
 		}
-
+		else
+			printf("%d - %d = %d\n", input_2, input_1, input_2 - input_1);*/
+		if (min< 0)
+		{
+			min *= -1;
+		}
+		printf("|%d - %d| = %d\n", input_1, input_2, min);
 	}
 		break;
 	//정수를 2개 입력받아서 먼저 입력된 숫자를 나중에 입력된 숫자로 나눠서 몫과 나머지를 출력하라
@@ -76,7 +87,10 @@ int main()
 		int input_1, input_2;
 		printf("숫자를 두개 입력하시오\n");
 		scanf(" %d %d", &input_1, &input_2);
-		printf("%d / %d 의 몫은 %d 이고 나머지는 %d 이다.\n", input_1, input_2, input_1 / input_2, input_1 % input_2);
+		if (input_2 == 0)
+			printf("0으로 나눌 수 없습니다.");
+		else
+			printf("%d / %d 의 몫은 %d 이고 나머지는 %d 이다.\n", input_1, input_2, input_1 / input_2, input_1 % input_2);
 	}
 		break;
 	//번호를 하나 입력하면 복권의 담청 여부를 출력하라 77: 당첨, 10의 자리가 7:2등 1자리 3등 나머지 꽝
@@ -107,8 +121,6 @@ int main()
 		else
 			printf("꽝");
 	}
-		break;
-	default:
 		break;
 	}
 }
