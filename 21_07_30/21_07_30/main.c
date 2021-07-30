@@ -10,7 +10,7 @@ void main()
 	printf("8 : 1에서 100까지의 숫자 중에서 짝수만 출력, 5의 배수만 출력, 홀수만 출력 순서 반대로\n9 : 10x10 숫자 행렬 출력\n");
 	printf("10 : (for문으로) -50~50까지 숫자중에서 홀수만 반대로 출력하자\n11 : 숫자를 0과 1중 하나를 입력받아서 0을 입력하면 짝수 1을 입력하면 홀수를 0~100까지 범위에서 출력하자\n");
 	printf("12 : 숫자 하나를 입력받아서 100~200까지의 숫자 중에서 해당 숫자의 배수만 출력하자\n13 : 숫자 1개를 입력받아서 1~100까지 숫자 중에서 10의 자리 숫자가 입력한 숫자인 수들을 출력하자\n");
-	printf("14 : 10x10 matrix\n");
+	printf("14 : 10x10 matrix\n15 : do while 문법\n16 : @@골벵이 출력 (반복문 중첩)\n17 : @#골벵이 샵 출력\n");
 	scanf(" %d", &Practice_Num);
 
 	switch (Practice_Num)
@@ -19,7 +19,7 @@ void main()
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			for (int j = 0; j < 10; j++)
+			for (int j = 0; j < 9; j++)
 			{
 				if (i == j || i == 8 - j)
 				{
@@ -237,8 +237,7 @@ void main()
 	{
 		for (int i = 0; i < 10; i++)
 		{
-			int j;
-			for (j = i * 10 ; j < (i + 1) * 10; j++)
+			for (int j = i * 10 ; j < (i + 1) * 10; j++)
 			{
 				printf("%d ", j + 1);
 			}
@@ -246,7 +245,7 @@ void main()
 		}
 	}
 		break;
-	case 15:
+	case 15://do while 문법
 	{
 		int i = 0;
 		do {
@@ -254,6 +253,33 @@ void main()
 		} while (i > 0);
 	}
 		break;
+	case 16://@@골벵이 출력 (반복문 중첩)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 5; j++)
+			{
+				printf("@");
+			}
+			printf("\n");
+		}
+	}
+		break;
+	case 17://@#골벵이 샵 출력
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for(int j =0; j < 5; j++)
+			{
+				if (i % 2 == 0)
+					printf("@");
+				else
+					printf("#");
+			}
+			printf("\n");
+		}
+	}
+	break;
 	default:
 		printf("잘못된 연습문제 번호입니다.\n");
 		break;
