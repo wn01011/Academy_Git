@@ -5,6 +5,7 @@
 CString::CString(const char* _pStr) : m_szStr(nullptr)
 {
 	std::cout << "CString Constructor" << std::endl;
+	Copy(_pStr);
 }
 CString::CString(const CString& _str) : m_szStr(nullptr)
 {
