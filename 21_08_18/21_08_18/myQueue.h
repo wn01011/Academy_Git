@@ -4,11 +4,9 @@
 #define SAFE_DELETE(p) if(p){delete[] p; p = nullptr;}
 #define aryStep 10
 using namespace std;
-
 class myQueue
 {
 private:
-	
 	int queOverflow = 1;
 	int aryLength = aryStep * queOverflow;
 	int top = -1;
@@ -20,8 +18,9 @@ public:
 	void Print();
 	void Manager();
 	void ExpandAry();
+	void DownSize();
+	void ReSize();
 	~myQueue() { SAFE_DELETE(ary);}
-
 };
 
 #endif

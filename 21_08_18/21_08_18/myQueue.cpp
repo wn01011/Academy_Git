@@ -56,6 +56,11 @@ void myQueue::Manager()
 		Push();
 		break;
 	case POP:
+		if (top <= aryLength - aryStep)
+		{
+			cout << "queue is too big\t I'll downsize\n";
+			DownSize();
+		}
 		Pop();
 		break;
 	case PRINT:
@@ -72,7 +77,22 @@ void myQueue::Manager()
 
 void myQueue::ExpandAry()
 {
+	int num = ary[top];
 	++queOverflow;
+	ReSize();
+	ary[top] = num;
+}
+
+void myQueue::DownSize()
+{
+	int num = ary[top];
+	--queOverflow;
+	ReSize();
+	ary[top] = num;
+}
+
+void myQueue::ReSize()
+{
 	aryLength = aryStep * queOverflow;
 	ary2 = new int[aryLength] {0};
 	for (int i = 0; i < top; ++i)
