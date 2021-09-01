@@ -3,33 +3,26 @@
 void QuickSort::QuickSorting()
 {
 	start = 0;
-	end = 19;
+	end = 9;
 	pivot = 0;
 	
+	srand(time(0));
+	for (int i = 0; i < 10; i++)
+	{
+		ary[i] = rand();
+	}
 
-	
-	QuickFunc(ary, 0, 19);
-	for (int i = 0; i < 20; i++)
+	QuickFunc(ary, 0, 9);
+	for (int i = 0; i < 10; i++)
 	{
 		cout << ary[i] << "\t";
 	}
 }
 
-bool QuickSort::CrossTest(int* _i, int* _j, int* _pivot)
-{
-	if (*_i > *_j)
-	{
-		int tmp = ary[*_pivot];
-		ary[*_pivot] = ary[*_j];
-		ary[*_j] = tmp;
-		*_pivot = *_j;
-		return true;
-	}
-	return false;
-}
 
 
-void QuickSort::QuickFunc(int a[20], int start, int end)
+
+void QuickSort::QuickFunc(int a[10], int start, int end)
 {
 	if (start>=end) return;
 		
@@ -39,7 +32,7 @@ void QuickSort::QuickFunc(int a[20], int start, int end)
 
 	while (i<=j)
 	{
-		while (ary[i] <= ary[pivot] && i <= end)
+		while (ary[i] < ary[pivot] && i <= end)
 		{
 			i++;
 		}
@@ -52,14 +45,18 @@ void QuickSort::QuickFunc(int a[20], int start, int end)
 			int tmp = ary[i];
 			ary[i] = ary[j];
 			ary[j] = tmp;
-			for (int i = 0; i < 20; i++)
-			{
-				cout << ary[i] << "\t";
-			} cout << endl;
-			QuickFunc(ary, i, j);
+			
 		}
-	
-		if (CrossTest(&i, &j, &pivot))break; 
+		else
+		{
+			int tmp = ary[j];
+			ary[j] = ary[pivot];
+			ary[pivot] = tmp;
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			cout << ary[i] << "\t";
+		} cout << endl;
 	}
 	QuickFunc(ary, start, j - 1);
 	QuickFunc(ary, j + 1, end );

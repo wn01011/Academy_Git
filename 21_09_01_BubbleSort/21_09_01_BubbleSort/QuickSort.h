@@ -21,7 +21,7 @@ class QuickSort
 	//만약, end와 start가 같거나, start가 end보다 커지면 혹은 end가 start보다 작아지면 해당 퀵정렬은 원소가 하나뿐인것임으로 정렬하지 않고 종료된다.
 	int pivot = 0;
 	int start, end;
-	int ary[20] = {10,9,6,1,20,3,2,7,8,19,18,17,16,15,14,13,12,11,5,4};
+	int ary[10] = { 10,9,6,1,20,3,2,7,8,19 };
 public:
 	void QuickSorting();
 	bool CrossTest(int* _i, int* _j, int* _pivot);
